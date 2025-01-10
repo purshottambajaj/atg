@@ -48,7 +48,6 @@ router.post('/forgot-password', async (req, res) => {
         const user = await User.findOne({ email });
         if (!user) return res.status(400).json({ message: 'User not found' });
 
-        // Ideally, generate a reset password link here
         res.status(200).json({ message: 'Password reset link has been sent to your email.' });
     } catch (error) {
         res.status(500).json({ message: 'Server error', error: error.message });
